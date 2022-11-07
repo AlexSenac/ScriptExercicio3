@@ -1,0 +1,12 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "nome": "computador",
+        "quantidade": 54,
+        "fornecedor": "Americanas",
+        "validade": "23/05/2023",
+        "categoria": "Eletrônicos"
+      }
+    ]
+  }

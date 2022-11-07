@@ -1,0 +1,114 @@
+<section>
+  <mat-card class="edit-container">
+    <h1 class="title">Novo Produto</h1>
+    <mat-card-content>
+      <form [formGroup]="crudForm" (submit)="editar()">
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Nome do Produto:</mat-label>
+            <input
+              matInput
+              formControlName="nome"
+              placeholder="nome:"
+              required
+            />
+            <mat-hint>Informe o nome do produto que deseja editar:</mat-hint>
+            <mat-error *ngIf="nomeProduto.errors?.['required']">
+              <span style="color: red">Campo Obrigatório</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Quantidade de Produto:</mat-label>
+            <input
+              matInput
+              formControlName="quantidade"
+              placeholder="quantidade:"
+              required
+            />
+            <mat-hint
+              >Informe a quantidade de produto que deseja cadastrar:</mat-hint
+            >
+            <mat-error *ngIf="false">
+              <span style="color: red">Campo Obrigatório</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              formControlName="fornecedor"
+              placeholder="fornecedor:"
+              required
+            />
+            <mat-hint
+              >Informe o fornecedor do produto que deseja cadastrar:</mat-hint
+            >
+            <mat-error *ngIf="false">
+              <span style="color: red">Campo Obrigatório</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Validade do Produto:</mat-label>
+            <input
+              matInput
+              type="date"
+              formControlName="validade"
+              placeholder="validade:"
+              required
+            />
+            <mat-hint
+              >Informe a validade do produto que deseja cadastrar:</mat-hint
+            >
+            <mat-error *ngIf="false">
+              <span style="color: red">Campo Obrigatório</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Categoria do Produto:</mat-label>
+            <input
+              matInput
+              formControlName="categoria"
+              placeholder="categoria:"
+              required
+            />
+            <mat-hint
+              >Informe a categoria do produto que deseja cadastrar:</mat-hint
+            >
+            <mat-error *ngIf="false">
+              <span style="color: red">Campo Obrigatório</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Status do Produto:</mat-label>
+            <mat-select required appearance="fill" formControlName="status">
+              <mat-option selected disabled>Sem Seleção</mat-option>
+              <mat-option value="0">Pendente</mat-option>
+              <mat-option value="1">Em Andamento</mat-option>
+              <mat-option value="2">Concluido</mat-option>
+            </mat-select>
+            <mat-hint>Informe o status do produto:</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="btn-edit-container">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="nomeProduto.status != 'VALID'"
+          >
+            Atualizar Produto
+          </button>
+        </div>
+      </form>
+      <div>{{ msg }}</div>
+    </mat-card-content>
+  </mat-card>
+</section>
